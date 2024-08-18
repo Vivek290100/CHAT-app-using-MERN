@@ -50,12 +50,21 @@ export const sendMessage = async (req, res) => {
 
 
 
-// export const getMessage = async (req, res) => {
-//     try {
-//         const senderId = req.params._id;
+export const getMessage = async (req, res) => {
+    try {
+        const {id:userToChatId} = req.params
+        const senderId = req.user._id;
+
+        const conversation = await Conversation.findOne({participants: {$all: [senderId, userToChatId]}})
+       .populate("messages",)
+
+       if(!conversation) return res.status(200).json([])
+
+       const messages = conversation.messages
+       res.status(200).json(messages);
     
-//     }catch(error){
-//         console.error("Error in getting messages", error.message);
-//         return res.status(500).json({ error: "Failed to get messages" });
-//     }
-// }
+    }catch(error){
+        console.error("Error in getting messages", error.message);
+        return res.status(500).json({ error: "Failed to get messages" });
+    }
+}

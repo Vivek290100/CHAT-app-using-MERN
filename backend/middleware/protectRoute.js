@@ -2,16 +2,16 @@ import jwt from "jsonwebtoken"
 import User from "../models/userModel.js";
 
 const protectRoute = async (req, res, next) => {
-    // console.log("All cookies:", req.cookies);
-    // console.log("Headers:", req.headers);
+    console.log("All cookies:", req.cookies);
+    console.log("Headers:", req.headers);
     try {
         const token = req.cookies.jwt
-        console.log("req.cookies",req.cookies);
+        console.log("req.cookies.jwt",token);
         
 
         
         if (!token) {
-            return res.status(401).json({ error: "Not authenticated" });
+            return res.status(401).json({ error: "Not authenticated -No token" });
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);

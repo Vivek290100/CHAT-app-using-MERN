@@ -10,9 +10,12 @@ const generateTokenAndSetCookie = (userId,res) => {
         httpOnly: true,       //prevent XXS attacks
         maxAge: 15 * 24 * 60 * 60 * 1000,
         sameSite: "strict",   //prevent CSRF attacks
-        secure: process.env.NODE_ENV !== "developement", //only set cookie on developement environment
+        secure: process.env.NODE_ENV !== "development", //only set cookie on developement environment
     })
+
+    console.log("token", token);
+    
     
 }
 
-export default generateTokenAndSetCookie;
+export default generateTokenAndSetCookie

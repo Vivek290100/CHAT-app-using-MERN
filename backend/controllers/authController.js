@@ -67,8 +67,8 @@ export const login = async (req, res) =>{
         }
 
         generateTokenAndSetCookie(user._id, res)
-        console.log("wewerrwer", req.cookies.jwt);
-        console.log("header",req.header);
+        console.log("wewerrwer", req.cookies);
+        console.log("loginheader",req.headers);
         
         
 
