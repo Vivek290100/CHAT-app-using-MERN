@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
     <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-  <div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop bg-opacity-20'>
+  <div className='w-full p-6 rounded-lg shadow-md bg-gray-800 bg-clip-padding backdrop bg-opacity-20 border-separate border -2 shadow-slate-300'>
     <h2 className='text-3xl font-bold mb-4 text-blue-800'>Login</h2>
     <form>
       <div className='mb-4'>
@@ -31,16 +32,16 @@ const Login = () => {
       <div className='flex items-center justify-between'>
         <button
           className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out'
-          type='button'
+          type='submit'
         >
           Login
         </button>
-        <a
+        <Link
           className='inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 transition duration-300 ease-in-out'
-          href='#'
+          to='/signup'
         >
           Don't have an account? Sign up
-        </a>
+        </Link>
       </div>
     </form>
   </div>
