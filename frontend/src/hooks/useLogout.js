@@ -16,11 +16,12 @@ const useLogout = () => {
       if (data.error) {
         throw new Error(data.error);
       }
-      localStorage.removeItem("chat-user");
+      localStorage.removeItem("chat-users");
       setUser(null);
     } catch (error) {
-      setLoading(false);
+      toast.error(error.ErrorMessage)
     } finally {
+      setLoading(false);
     }
   };
   return { loading, logout };
