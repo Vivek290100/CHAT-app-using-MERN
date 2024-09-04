@@ -2,11 +2,11 @@ import jwt from "jsonwebtoken"
 import User from "../models/userModel.js";
 
 const protectRoute = async (req, res, next) => {
-    console.log("All cookies:", req.cookies);
-    console.log("Headers:", req.headers);
+    // console.log("All cookies:", req.cookies);
+    // console.log("Headers:", req.headers);
     try {
         const token = req.cookies.jwt
-        console.log("req.cookies.jwt",token);
+        // console.log("req.cookies.jwt",token);
         
 
         
