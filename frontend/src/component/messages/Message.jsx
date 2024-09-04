@@ -11,6 +11,7 @@ const Message = ({ message }) => {
   const profilePic = fromMe ? user.dp : selectedConversation.dp
   const bgblue = fromMe ? "bg-blue-500" : ""
   const formatedTime = extractTime(message.createdAt)
+  const shakeClass = message.shouldshake ? "shake" : ""
   return (
     <div>
       <div className={`chat ${chatClassName}`}>
@@ -26,7 +27,7 @@ const Message = ({ message }) => {
           sent
           <time className="text-xs opacity-50">12:46</time>
         </div> */}
-        <div className={`chat-bubble text-white ${bgblue}`}>{message.message}</div>
+        <div className={`chat-bubble text-white ${bgblue} ${shakeClass}`}>{message.message}</div>
         <div className="chat-footer opacity-50">{formatedTime}</div>
       </div>
     </div>

@@ -57,7 +57,7 @@ export const signup = async (req, res) =>{
 
 
 export const login = async (req, res) =>{
-    console.log("Received data:", req.body);
+    // console.log("Received data:", req.body);
     try{
         const {userName, password} = req.body
         const user = await User.findOne({userName})
@@ -68,8 +68,8 @@ export const login = async (req, res) =>{
         }
 
         generateTokenAndSetCookie(user._id, res)
-        console.log("wewerrwer", req.cookies);
-        console.log("loginheader",req.headers);
+        // console.log("wewerrwer", req.cookies);
+        // console.log("loginheader",req.headers);
         
         
 

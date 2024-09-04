@@ -6,8 +6,9 @@ import authRoutes from "./routes/authRoutes.js"
 import messageRoutes from "./routes/messageRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import connetToDB from './config/mongodb.js'
+import { app, server } from './socket/socket.js'
 
-const app = express()
+// const app = express()
 const PORT = process.env.PORT || 5000
 
 dotenv.config()
@@ -24,8 +25,8 @@ app.use("/api/users", userRoutes)
 //     res.send("created")
 // })
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     connetToDB()
-    console.log("server running on http://localhost:8000");
+    console.log("server running on http://localhost:5000");
     
 })
